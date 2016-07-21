@@ -204,26 +204,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: motorMaxAngle
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5488200, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: m_Drag
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5488200, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: m_AngularDrag
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: thrust
-      value: 750
-      objectReference: {fileID: 0}
-    - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: motorMinAngle
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc04812ce431e439d99056741447f51d, type: 2}
   m_IsPrefabParent: 0
