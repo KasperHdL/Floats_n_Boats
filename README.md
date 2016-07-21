@@ -1,1 +1,1 @@
-SummerGameJam
+Summer Jam Game
