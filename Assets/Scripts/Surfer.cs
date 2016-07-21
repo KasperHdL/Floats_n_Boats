@@ -3,7 +3,16 @@ using System.Collections;
 
 public class Surfer : MonoBehaviour {
 
-	private bool _isDead = false;
+	private Rigidbody body;
+	private Transform connectedTransform;
+
+	[SerializeField] private bool _isDead = false;
+	[SerializeField] private float force = 25;
+	
+
+
+
+	
 	public bool isDead{
 		get { return _isDead;}
 		private set {_isDead = value;}
@@ -11,9 +20,16 @@ public class Surfer : MonoBehaviour {
 	
 	void Start () {
 	
+		body = GetComponent<Rigidbody>();
+		connectedTransform = GetComponent<Joint>().connectedBody.transform;
 	}
 	
 	void Update () {
-	
+		float h = Input.GetAxis("Horizontal");
+		transform.LookAt(connectedTransform);
+		//body.AddForce(transform.right * h);
+		
+		
+		
 	}
 }

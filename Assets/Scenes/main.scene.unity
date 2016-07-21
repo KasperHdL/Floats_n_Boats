@@ -365,6 +365,21 @@ MonoBehaviour:
   smoothFactor: 0.8
   yOffset: 5
   minOffsetXZ: 20
+--- !u!1 &1483272175 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 166130, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
+  m_PrefabInternal: {fileID: 38134974}
+--- !u!114 &1483272176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1483272175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f977c41b81d1a42b0b95166fa72c9799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1735742928
 GameObject:
   m_ObjectHideFlags: 0
