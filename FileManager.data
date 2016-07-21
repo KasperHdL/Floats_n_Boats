@@ -17,6 +17,9 @@ SummerGameJam
 ZiosThemes
 +/Editor
 ZiosThemesEditor
+(mat)
+=$/Assets/Materials
+floor
 (cs)
 =$/Assets/Audio
 temp
@@ -25,9 +28,6 @@ VSCode
 =$/Assets/Scripts
 Boat
 TrackingCamera
-(mat)
-=$/Assets/Materials
-floor
 (prefab)
 =$/Assets/Prefabs
 Boat
