@@ -4,20 +4,34 @@
 
 (csproj)
 Assembly-CSharp-Editor-firstpass
+Assembly-CSharp
 (data)
 FileManager
 (md)
 README
 (sln)
 Summer Jam Game
+SummerGameJam
 (dll)
 +/Assets
 ZiosThemes
 +/Editor
 ZiosThemesEditor
+(mat)
+=$/Assets/Materials
+floor
 (cs)
 =$/Assets/Plugins/Editor
 VSCode
+=$/Assets/Scripts
+Boat
+TrackingCamera
+(prefab)
+=$/Assets/Prefabs
+Boat
+(unity)
+=$/Assets/Scenes
+main.scene
 (guiskin)
 =$/Assets/Themes/@Default
 @Default
@@ -314,9 +328,17 @@ Sans-Chubgothic1
 +/Assets
 
 
+
+
+
 +/Plugins
 
 =$/Assets
+
+
+
+
+
 
 +/Themes
 
