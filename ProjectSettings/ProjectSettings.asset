@@ -451,7 +451,7 @@ PlayerSettings:
   WebGL::emscriptenArgs: 
   WebGL::template: APPLICATION:Default
   additionalIl2CppArgs::additionalIl2CppArgs: 
-  cloudProjectId: 
-  projectName: 
-  organizationId: 
+  cloudProjectId: c45f7884-d4dd-4c22-8729-4dfa3368aefe
+  projectName: Summer Jam Game
+  organizationId: frans-peter-larsen
   cloudEnabled: 0
