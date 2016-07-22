@@ -26,6 +26,6 @@ public class PlayableZone : MonoBehaviour {
     void OnDrawGizmosSelected()
     {
         Gizmos.color = gizmoColor;
-        Gizmos.DrawSphere(transform.position, radius);
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }
