@@ -43,4 +43,10 @@ public class Boat : MonoBehaviour {
 		body.AddForceAtPosition(force, transform.position + transform.forward * motorOffset);
 			
 	}
+
+    // Make them fall
+    public void EnablePhysics()
+    {
+        body.constraints = new RigidbodyConstraints(); // Just reset the damn thing
+    }
 }

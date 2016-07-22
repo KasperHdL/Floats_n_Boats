@@ -43,6 +43,9 @@ public class GameStateInspector : MonoBehaviour {
                !playableZone.sphere.bounds.Contains(team.boat.transform.position))
             {
                 team.surf.isDead = true;
+
+                team.surf.EnablePhysics();
+                team.boat.EnablePhysics();
             }
         }
     }
