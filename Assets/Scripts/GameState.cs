@@ -2,17 +2,20 @@
 using System.Collections;
 using System;
 
+// Has no logic but just holds data for other classes to access easily
+
 public static class GameState {
     public static Team[] teams;
 
-    public static float seconds;
+    public static float roundTimeSeconds;
+    public static float roundLengthSeconds;
 
     public static void CheckIfTeamWon()
     {
         int index = -1;
         int numOfAliveSurfers = 0;
 
-        for(int i = 0; i < teams.Length;i++)
+        for (int i = 0; i < teams.Length; i++)
         {
             if (!teams[i].surf.isDead)
             {
@@ -24,14 +27,20 @@ public static class GameState {
                 return;
         }
 
-        if(index == -1 || index > teams.Length) {
+        if (index == -1 || index > teams.Length)
+        {
             Debug.LogError("Bad Team Index");
         }
 
-        TeamWon(teams[index]);
+        EndRound(teams[index]);
     }
 
-    private static void TeamWon(Team team)
+    private static void EndRound() // Time ran out
+    {
+
+    }
+
+    private static void EndRound(Team winnerTeam) // Some Team Won
     {
 
     }

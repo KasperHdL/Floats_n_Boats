@@ -6,17 +6,9 @@ public class Surfer : MonoBehaviour {
 	private Rigidbody body;
 	private Transform connectedTransform;
 
-	[SerializeField] private bool _isDead = false;
 	[SerializeField] private float force = 25;
-	
 
-
-
-	
-	public bool isDead{
-		get { return _isDead;}
-		private set {_isDead = value;}
-	}
+    public bool isDead;
 	
 	void Start () {
 	
@@ -33,4 +25,10 @@ public class Surfer : MonoBehaviour {
 		
 		
 	}
+
+    // Make them fall
+    public void EnablePhysics()
+    {
+        body.constraints = new RigidbodyConstraints(); // Just reset the damn thing
+    }
 }

@@ -128,4 +128,11 @@ public class Boat : MonoBehaviour {
 		return objects.ToArray();
 	}
 
+	}
+
+    // Make them fall
+    public void EnablePhysics()
+    {
+        body.constraints = new RigidbodyConstraints(); // Just reset the damn thing
+    }
 }
