@@ -11,7 +11,6 @@ public class Boat : MonoBehaviour {
 	private Joint ropeJoint;
 	
 	[Header("Movement")]
-
 	[SerializeField] private float motorOffset;
 	[SerializeField] private float motorMaxAngle;
 	[SerializeField] private float thrust;
