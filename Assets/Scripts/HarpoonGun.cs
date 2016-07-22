@@ -4,6 +4,7 @@ using System.Collections;
 public class HarpoonGun : MonoBehaviour {
 
 	public GameObject harpoonPrefab;
+	public GameObject projectile;
 	public GameObject aim;
 	private Vector3 velocity;
 	private ParticleSystem ps;
@@ -28,20 +29,25 @@ public class HarpoonGun : MonoBehaviour {
 		float w = Input.GetAxis ("Horizontal");
 		velocity = new Vector3 (w, 0f, h);
 
+		if (Time.time > timeStamp && projectile.activeSelf == false)
+			projectile.SetActive (true);
+
+
 		if (Input.GetButtonDown("joystick button 0") && Time.time > timeStamp){
+			projectile.SetActive (false);
 			Shoot (velocity, harpoonPrefab);
 			ps.Play();
 			timeStamp = Time.time + cooldown;
 		}
-
+		Debug.Log (velocity);
+		transform.rotation = Quaternion.LookRotation(velocity);
 		aim.transform.rotation = Quaternion.LookRotation(velocity);
-		//Debug.Log (velocity);
 	}
 
 	public void Shoot(Vector3 vel, GameObject prefab){
 		Quaternion qua = Quaternion.LookRotation(vel);
 		GameObject g = Instantiate (prefab, transform.position, qua) as GameObject;
 		Harpoon h = g.GetComponent(typeof(Harpoon)) as Harpoon;
-		h.velocity = velocity;
+		h.velocity = vel;
 	}
 }

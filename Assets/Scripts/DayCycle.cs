@@ -19,7 +19,6 @@ public class DayCycle : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (percent);
 		percent = GameState.seconds / dayLength;
 		transform.rotation = Quaternion.Lerp(startRot, endRot, percent);
 	}
