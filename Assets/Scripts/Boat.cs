@@ -7,6 +7,7 @@ public class Boat : MonoBehaviour {
 	[SerializeField] private float motorOffset;
 	[SerializeField] private float motorMaxAngle;
 	[SerializeField] private float thrust;
+	[SerializeField] private float reverseFactor = 0.1f;
 
 
 	void Start () {
@@ -20,7 +21,7 @@ public class Boat : MonoBehaviour {
 		float v = Input.GetAxis("Vertical");
 
 		if(v < 0)
-			v = v * 0.1f;
+			v = v * reverseFactor;
 	
 		Vector3 force = transform.forward * thrust * v * Time.deltaTime;
 		force = Quaternion.Euler(0, motorMaxAngle * -h, 0) * force;
