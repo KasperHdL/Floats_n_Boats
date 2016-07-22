@@ -13,6 +13,7 @@ GameObject:
   - 23: {fileID: 2395712}
   - 54: {fileID: 5406216}
   - 145: {fileID: 14549170}
+  - 114: {fileID: 11483946}
   m_Layer: 0
   m_Name: Surfer
   m_TagString: Untagged
@@ -81,6 +82,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!114 &11483946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f977c41b81d1a42b0b95166fa72c9799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDead: 0
+  force: 0.1
 --- !u!135 &13590972
 SphereCollider:
   m_ObjectHideFlags: 1

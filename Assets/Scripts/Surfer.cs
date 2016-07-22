@@ -27,7 +27,8 @@ public class Surfer : MonoBehaviour {
 	void Update () {
 		float h = Input.GetAxis("Horizontal");
 		transform.LookAt(connectedTransform);
-		//body.AddForce(transform.right * h);
+		body.AddForce(transform.right * h * force);
+		Debug.DrawLine(transform.position, transform.position + transform.right * h * force * 10, Color.green);
 		
 		
 		
