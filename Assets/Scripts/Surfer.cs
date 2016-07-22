@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Surfer : MonoBehaviour {
+public class Surfer : Controllable{
 
 	private Boat boat;
 	private Rigidbody body;
@@ -23,13 +23,11 @@ public class Surfer : MonoBehaviour {
 		boat = connectedTransform.GetComponent<Boat>();
 	}
 	
-	void Update () {
+	public override void InputUpdate (Vector2 moveStick) {
 		if(joint.connectedBody != null){
-			float h = Input.GetAxis("Horizontal");
-			
 			transform.LookAt(connectedTransform);
-			body.AddForce(transform.right * h * force);
-			Debug.DrawLine(transform.position, transform.position + transform.right * h * force * 10, Color.green);
+			body.AddForce(transform.right * moveStick.x * force);
+			Debug.DrawLine(transform.position, transform.position + transform.right * moveStick.x * force * 10, Color.green);
 
 		}
 				

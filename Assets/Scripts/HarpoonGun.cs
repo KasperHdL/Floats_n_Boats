@@ -1,53 +1,50 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HarpoonGun : MonoBehaviour {
+public class HarpoonGun : Controllable {
 
 	public GameObject harpoonPrefab;
 	public GameObject projectile;
 	public GameObject aim;
-	private Vector3 velocity;
 	private ParticleSystem ps;
-	private float timeStamp;
-	[SerializeField]
-	private float cooldown;
-	[SerializeField]
-	private float rotationSpeed;
+	private float nextShootTime;
+	[SerializeField] private float cooldown = 5f;
+	[SerializeField] private float harpoonForce = 1000f;
 
-	// Use this for initialization
+	private Camera camera;
+
 	void Start () {
-		ps = aim.GetComponent (typeof (ParticleSystem)) as ParticleSystem;
-		timeStamp = 0;
-		cooldown = 5;
-		velocity = new Vector3 (1,0,0);
-		rotationSpeed = 1f;
+		ps = aim.GetComponent<ParticleSystem>();
+		camera = Camera.main;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		float h = Input.GetAxis ("Vertical");
-		float w = Input.GetAxis ("Horizontal");
-		velocity = new Vector3 (w, 0f, h);
-
-		if (Time.time > timeStamp && projectile.activeSelf == false)
-			projectile.SetActive (true);
-
-
-		if (Input.GetButtonDown("joystick button 0") && Time.time > timeStamp){
+	void Update(){
+		if (Time.time > nextShootTime && projectile.activeSelf == false)
+		projectile.SetActive (true);
+	
+	}
+		
+	public override void InputUpdate(Vector2 aimStick, bool shoot){
+		
+		Vector3 delta = transform.position - camera.transform.position;
+		delta.y = 0;
+		delta = delta.normalized;
+		
+		transform.rotation = Quaternion.LookRotation(delta.normalized);
+	
+		if (shoot && Time.time > nextShootTime){
 			projectile.SetActive (false);
-			Shoot (velocity, harpoonPrefab);
+			Vector3 direction = new Vector3(aimStick.x, 0, aimStick.y);
+			Shoot (direction, harpoonPrefab);
 			ps.Play();
-			timeStamp = Time.time + cooldown;
+			nextShootTime = Time.time + cooldown;
 		}
-		Debug.Log (velocity);
-		transform.rotation = Quaternion.LookRotation(velocity);
-		aim.transform.rotation = Quaternion.LookRotation(velocity);
+		
 	}
 
-	public void Shoot(Vector3 vel, GameObject prefab){
-		Quaternion qua = Quaternion.LookRotation(vel);
-		GameObject g = Instantiate (prefab, transform.position, qua) as GameObject;
-		Harpoon h = g.GetComponent(typeof(Harpoon)) as Harpoon;
-		h.velocity = vel;
+	public void Shoot(Vector3 direction, GameObject prefab){
+		GameObject g = Instantiate (prefab, transform.position, transform.rotation) as GameObject;
+		Harpoon h = g.GetComponent<Harpoon>();
+		h.GetComponent<Rigidbody>().AddForce(direction * harpoonForce);
 	}
 }
