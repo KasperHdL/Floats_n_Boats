@@ -17,6 +17,6 @@ public class DayCycle : MonoBehaviour
     void Update()
     {
         float t = GameState.roundTimeSeconds / GameState.roundLengthSeconds;
-        transform.rotation = Quaternion.Lerp(startRot, endRot, t);
+        transform.rotation = Quaternion.Slerp(startRot, endRot, t);
     }
 }
