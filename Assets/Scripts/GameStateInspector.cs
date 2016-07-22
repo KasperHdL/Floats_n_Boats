@@ -15,7 +15,7 @@ public class GameStateInspector : MonoBehaviour {
     public int roundLengthSeconds;
 
     [Header("Map Settings")]
-    public Collider playableZone;
+    public PlayableZone playableZone;
 
     private float roundStartTime;
 
@@ -39,8 +39,8 @@ public class GameStateInspector : MonoBehaviour {
     {
         foreach(Team team in GameState.teams)
         {
-            if(!playableZone.bounds.Contains(team.surf.transform.position) || 
-               !playableZone.bounds.Contains(team.boat.transform.position))
+            if(!playableZone.sphere.bounds.Contains(team.surf.transform.position) || 
+               !playableZone.sphere.bounds.Contains(team.boat.transform.position))
             {
                 team.surf.isDead = true;
             }
