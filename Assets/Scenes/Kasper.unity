@@ -140,6 +140,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &145150903 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11483946, guid: a1339e33d4cd8462d8f5b3f4418e2d7b,
+    type: 2}
+  m_PrefabInternal: {fileID: 2042198851}
+  m_Script: {fileID: 11500000, guid: f977c41b81d1a42b0b95166fa72c9799, type: 3}
 --- !u!1001 &233763881
 Prefab:
   m_ObjectHideFlags: 0
@@ -157,7 +163,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 425682, guid: bc04812ce431e439d99056741447f51d, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1.92
+      value: 4.59
       objectReference: {fileID: 0}
     - target: {fileID: 425682, guid: bc04812ce431e439d99056741447f51d, type: 2}
       propertyPath: m_LocalRotation.x
@@ -182,6 +188,14 @@ Prefab:
     - target: {fileID: 144842, guid: bc04812ce431e439d99056741447f51d, type: 2}
       propertyPath: m_Name
       value: Boat (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
+      propertyPath: surfer
+      value: 
+      objectReference: {fileID: 145150903}
+    - target: {fileID: 144842, guid: bc04812ce431e439d99056741447f51d, type: 2}
+      propertyPath: m_TagString
+      value: Boat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc04812ce431e439d99056741447f51d, type: 2}
@@ -274,6 +288,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1745689310}
     m_Modifications:
+    - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
+      propertyPath: ropeCollisionTags.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 425682, guid: bc04812ce431e439d99056741447f51d, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -305,6 +323,26 @@ Prefab:
     - target: {fileID: 425682, guid: bc04812ce431e439d99056741447f51d, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
+      propertyPath: surfer
+      value: 
+      objectReference: {fileID: 1483272176}
+    - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
+      propertyPath: ropeCollisionBox.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
+      propertyPath: ropeCollisionBox.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
+      propertyPath: ai_controlled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 144842, guid: bc04812ce431e439d99056741447f51d, type: 2}
+      propertyPath: m_TagString
+      value: Boat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc04812ce431e439d99056741447f51d, type: 2}
@@ -412,6 +450,12 @@ MonoBehaviour:
   smoothFactor: 0.8
   yOffset: 5
   minOffsetXZ: 20
+--- !u!114 &1483272176 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11483946, guid: a1339e33d4cd8462d8f5b3f4418e2d7b,
+    type: 2}
+  m_PrefabInternal: {fileID: 38134974}
+  m_Script: {fileID: 11500000, guid: f977c41b81d1a42b0b95166fa72c9799, type: 3}
 --- !u!4 &1483272182 stripped
 Transform:
   m_PrefabParentObject: {fileID: 468042, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
