@@ -3,16 +3,23 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+	public int joystickNumber;
 	public GamePad gamepad;
 
-	[SerializeField] private Controllable controllable;
-	[SerializeField] private bool isControllingBoat;
+	private Controllable controllable;
+	private bool isControllingBoat;
 
 
 	[Header("Super Simple AI")]
 	[SerializeField] private bool ai_controlled = false;
 	[SerializeField, Range(0,1)] private float ai_turnChance = 0.5f;
 
+
+	void Start(){
+		gamepad = new GamePad(joystickNumber);
+		controllable = GetComponent<Controllable>();
+		isControllingBoat = controllable is Boat; 
+	}
 
 	void FixedUpdate () {
 
@@ -25,8 +32,15 @@ public class Player : MonoBehaviour {
 			);
 		}else{
 			stick = gamepad.GetStick(true);
+			stick.y = -stick.y;
 		}
-
-		controllable.InputUpdate(stick);
+		if(isControllingBoat){
+			controllable.InputUpdate(stick);
+		}else{
+			Vector2 aimStick = gamepad.GetStick(false);
+			aimStick.y = -aimStick.y;
+			controllable.InputUpdate(stick, aimStick, gamepad.GetButtonDown(GamePad.Button.RB));
+		}
+		
 	}
 }

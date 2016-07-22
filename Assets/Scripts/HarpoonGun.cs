@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HarpoonGun : Controllable {
+public class HarpoonGun : MonoBehaviour {
 
 	public GameObject harpoonPrefab;
 	public GameObject projectile;
@@ -10,6 +10,7 @@ public class HarpoonGun : Controllable {
 	private float nextShootTime;
 	[SerializeField] private float cooldown = 5f;
 	[SerializeField] private float harpoonForce = 1000f;
+	private Vector3 direction = new Vector3(0,0,1);
 
 	private Camera camera;
 
@@ -24,26 +25,25 @@ public class HarpoonGun : Controllable {
 	
 	}
 		
-	public override void InputUpdate(Vector2 aimStick, bool shoot){
-		
-		Vector3 delta = transform.position - camera.transform.position;
-		delta.y = 0;
-		delta = delta.normalized;
-		
-		transform.rotation = Quaternion.LookRotation(delta.normalized);
-	
-		if (shoot && Time.time > nextShootTime){
+	public void AimGun(Vector2 aimStick){
+		direction = new Vector3(aimStick.x, 0, aimStick.y);
+		transform.rotation = Quaternion.LookRotation(transform.position + direction.normalized);
+	}	
+
+
+	public bool ShootGun(){
+		if (Time.time > nextShootTime){
 			projectile.SetActive (false);
-			Vector3 direction = new Vector3(aimStick.x, 0, aimStick.y);
-			Shoot (direction, harpoonPrefab);
+			Shoot (direction);
 			ps.Play();
 			nextShootTime = Time.time + cooldown;
+			return true;
 		}
-		
+		return false;
 	}
 
-	public void Shoot(Vector3 direction, GameObject prefab){
-		GameObject g = Instantiate (prefab, transform.position, transform.rotation) as GameObject;
+	public void Shoot(Vector3 direction){
+		GameObject g = Instantiate (harpoonPrefab, transform.position, transform.rotation) as GameObject;
 		Harpoon h = g.GetComponent<Harpoon>();
 		h.GetComponent<Rigidbody>().AddForce(direction * harpoonForce);
 	}

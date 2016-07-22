@@ -15,6 +15,7 @@ public class Surfer : Controllable{
 
     public bool isDead;
 	
+	[SerializeField] private HarpoonGun harpoonGun;
 	void Start () {
 		joint = GetComponent<Joint>();
 		body = GetComponent<Rigidbody>();
@@ -23,7 +24,13 @@ public class Surfer : Controllable{
 		boat = connectedTransform.GetComponent<Boat>();
 	}
 	
-	public override void InputUpdate (Vector2 moveStick) {
+	public override void InputUpdate (Vector2 moveStick, Vector2 aimStick, bool shoot) {
+		if(aimStick.magnitude > 0)
+			harpoonGun.AimGun(aimStick);
+		
+		if(shoot)
+			harpoonGun.ShootGun();
+			
 		if(joint.connectedBody != null){
 			transform.LookAt(connectedTransform);
 			body.AddForce(transform.right * moveStick.x * force);

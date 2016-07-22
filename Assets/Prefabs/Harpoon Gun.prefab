@@ -60,7 +60,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 402326}
   m_Layer: 0
-  m_Name: group1
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -376,10 +376,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190358}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 468600}
   m_Father: {fileID: 465426}
@@ -430,7 +430,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 188602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.066, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -910,8 +910,8 @@ MonoBehaviour:
   harpoonPrefab: {fileID: 100000, guid: 1212e9facab3c402e91413dcb8314cf2, type: 3}
   projectile: {fileID: 195494}
   aim: {fileID: 190358}
-  cooldown: 0
-  rotationSpeed: 1
+  cooldown: 5
+  harpoonForce: 1000
 --- !u!198 &19874904
 ParticleSystem:
   m_ObjectHideFlags: 1
