@@ -255,10 +255,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: thrust
-      value: 750
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc04812ce431e439d99056741447f51d, type: 2}
   m_IsPrefabParent: 0
@@ -380,6 +376,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f977c41b81d1a42b0b95166fa72c9799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isDead: 0
+  force: 25
 --- !u!1 &1735742928
 GameObject:
   m_ObjectHideFlags: 0
