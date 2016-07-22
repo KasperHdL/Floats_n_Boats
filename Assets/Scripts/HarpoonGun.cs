@@ -24,22 +24,18 @@ public class HarpoonGun : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey (KeyCode.A)) {
-			velocity = Quaternion.AngleAxis(rotationSpeed, Vector3.up) * velocity;
-		}
+		float h = Input.GetAxis ("Vertical");
+		float w = Input.GetAxis ("Horizontal");
+		velocity = new Vector3 (w, 0f, h);
 
-		if (Input.GetKey (KeyCode.D)) {
-			velocity = Quaternion.AngleAxis(-rotationSpeed, Vector3.up) * velocity;
-		}
-
-		if (Input.GetKeyDown (KeyCode.Space) && Time.time > timeStamp){
+		if (Input.GetButtonDown("joystick button 0") && Time.time > timeStamp){
 			Shoot (velocity, harpoonPrefab);
 			ps.Play();
 			timeStamp = Time.time + cooldown;
 		}
 
 		aim.transform.rotation = Quaternion.LookRotation(velocity);
-		Debug.DrawLine(transform.position, velocity * 10, Color.green);
+		Debug.Log (velocity);
 	}
 
 	public void Shoot(Vector3 vel, GameObject prefab){
