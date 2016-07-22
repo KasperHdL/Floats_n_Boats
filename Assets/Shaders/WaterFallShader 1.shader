@@ -3,12 +3,13 @@
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
-		_Threshold ("Threshold", Range(0,100)) = 10
+		_AlphaTex ("Texture", 2D) = "white" {}
 	}
 	SubShader
 	{
     	Tags { "RenderType" = "Transparent" "Queue" = "Transparent" }
-		LOD 100
+    	LOD 100        
+		Blend SrcAlpha OneMinusSrcAlpha
 
 		Pass
 		{
@@ -24,24 +25,28 @@
 			{
 				float4 vertex : POSITION;
 				float2 uv : TEXCOORD0;
+				float2 uv2 : TEXCOORD1;
 			};
 
 			struct v2f
 			{
 				float2 uv : TEXCOORD0;
+				float2 uv2 : TEXCOORD1;
 				UNITY_FOG_COORDS(1)
 				float4 vertex : SV_POSITION;
 			};
 
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
-			float _Threshold;
+			sampler2D _AlphaTex;
+			float4 _AlphaTex_ST;
 			
 			v2f vert (appdata v)
 			{
 				v2f o;
 				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+				o.uv2 = TRANSFORM_TEX(v.uv2, _AlphaTex);
 				UNITY_TRANSFER_FOG(o,o.vertex);
 				return o;
 			}
@@ -50,15 +55,15 @@
 			{
 				// sample the texture
 				fixed4 col = tex2D(_MainTex, i.uv);
-				
+
 				// apply fog
 				UNITY_APPLY_FOG(i.fogCoord, col);
 
-				if(Worldcoordinate.y < _Threshold){
-					col.r = 0f;
-				}
+				fixed4 col2 = tex2D(_AlphaTex, i.uv2);
 
-				return col;
+				col.a = col2.r;
+
+				return col; 
 			}
 			ENDCG
 		}
