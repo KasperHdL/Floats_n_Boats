@@ -97,6 +97,7 @@ GameObject:
   - 92: {fileID: 202547219}
   - 124: {fileID: 202547218}
   - 81: {fileID: 202547217}
+  - 114: {fileID: 202547222}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -172,6 +173,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &202547222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 202547216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b48610268a3e6340a75ca7ba6649d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teams: []
 --- !u!1 &716984970 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 101154, guid: 22a83a28f6b1544e3834b946bb667992, type: 2}
@@ -1857,6 +1870,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1921285928}
   - 108: {fileID: 1921285927}
+  - 114: {fileID: 1921285929}
   m_Layer: 0
   m_Name: Directional light
   m_TagString: Untagged
@@ -1903,10 +1917,22 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1921285926}
-  m_LocalRotation: {x: 0.40821794, y: -0.23456973, z: 0.109381676, w: 0.87542605}
-  m_LocalPosition: {x: -0.36, y: 8.62, z: -8.57}
+  m_LocalRotation: {x: 0.67642564, y: 0.0035884036, z: 0.0036735565, w: 0.7364931}
+  m_LocalPosition: {x: 2.7, y: 3.82, z: -13.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 85.096, y: -353.11008, z: -353.1031}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &1921285929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1921285926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865062025228a42cea6fbfe71132014b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayLength: 0

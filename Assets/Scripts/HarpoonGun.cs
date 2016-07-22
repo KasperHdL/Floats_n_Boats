@@ -35,7 +35,7 @@ public class HarpoonGun : MonoBehaviour {
 		}
 
 		aim.transform.rotation = Quaternion.LookRotation(velocity);
-		Debug.Log (velocity);
+		//Debug.Log (velocity);
 	}
 
 	public void Shoot(Vector3 vel, GameObject prefab){
