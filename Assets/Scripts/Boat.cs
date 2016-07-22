@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Boat : MonoBehaviour {
 	private Rigidbody body;
+	private RigidbodyConstraints constraints;
 
 	private bool ropeConnected = true;
 	[SerializeField] private Surfer surfer;
@@ -27,6 +28,7 @@ public class Boat : MonoBehaviour {
 	void Start () {
 		body      = GetComponent<Rigidbody>();
 		ropeJoint = surfer.GetComponent<Joint>();
+		constraints = body.constraints;
 
 	}
 
@@ -102,6 +104,18 @@ public class Boat : MonoBehaviour {
 		ropeConnected = true;
 	}
 
+
+    public void EnablePhysics()
+    {
+		body.useGravity = true;
+        body.constraints = new RigidbodyConstraints(); // Just reset the damn thing
+	} 
+	
+    public void DisablePhysics()
+    {
+		body.useGravity = false;
+        body.constraints = constraints; // Just reset the damn thing
+    }
 	//************************
 	// Public Static Methods
 	
@@ -128,11 +142,4 @@ public class Boat : MonoBehaviour {
 		return objects.ToArray();
 	}
 
-	}
-
-    // Make them fall
-    public void EnablePhysics()
-    {
-        body.constraints = new RigidbodyConstraints(); // Just reset the damn thing
-    }
 }
