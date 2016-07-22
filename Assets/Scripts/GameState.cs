@@ -5,7 +5,8 @@ using System;
 public static class GameState {
     public static Team[] teams;
 
-    public static float seconds;
+    public static float roundTimeSeconds;
+    public static float roundLengthSeconds;
 
     public static void CheckIfTeamWon()
     {
@@ -28,10 +29,10 @@ public static class GameState {
             Debug.LogError("Bad Team Index");
         }
 
-        TeamWon(teams[index]);
+        EndRound(teams[index]);
     }
 
-    private static void TeamWon(Team team)
+    private static void EndRound(Team winnerTeam)
     {
 
     }

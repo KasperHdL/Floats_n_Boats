@@ -2,16 +2,26 @@
 using System.Collections;
 
 public class GameStateInspector : MonoBehaviour {
-    public Team[] teams;
+    [Header("Players Settings")]
+    public Team[] teams;    
 
-    private float startTime;
+    [Header("Boat Settings")]
+
+    [Header("Surf Settings")]
+
+    [Header("Round Settings")]
+    [Range(30, 240)] // Round 
+    public int roundLengthSeconds;
+
+    private float roundStartTime;
 
     // Use this for initialization
     void Start ()
     {
-        startTime = Time.realtimeSinceStartup;
+        roundStartTime = Time.time;
 
         GameState.teams = this.teams;
+        GameState.roundLengthSeconds = this.roundLengthSeconds;
 	}
 	
 	// Update is called once per frame
@@ -22,6 +32,6 @@ public class GameStateInspector : MonoBehaviour {
 
     void FixedUpdate()
     {
-        GameState.seconds = Time.realtimeSinceStartup - startTime;
+        GameState.roundTimeSeconds = Time.time - roundStartTime;
     }
 }
