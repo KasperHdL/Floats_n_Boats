@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PlayableZone : MonoBehaviour {
-    [Range(1, 100)]
+    [Range(1, 200)]
     public float radius;
     public Color gizmoColor;
 
