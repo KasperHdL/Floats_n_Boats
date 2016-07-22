@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Boat : MonoBehaviour {
+public class Boat : Controllable {
 	private Rigidbody body;
 	private RigidbodyConstraints constraints;
 
@@ -19,11 +19,8 @@ public class Boat : MonoBehaviour {
 	[Header("Collision")]
 	[SerializeField] private Vector2 ropeCollisionBox;
 
-	[Header("Super Simple AI")]
-	[SerializeField] private bool ai_controlled = false;
-	[SerializeField, Range(0,1)] private float ai_turnChance = 0.5f;
 
-
+	
 	void Start () {
 		body      = GetComponent<Rigidbody>();
 		ropeJoint = surfer.GetComponent<Joint>();
@@ -31,30 +28,21 @@ public class Boat : MonoBehaviour {
 
 	}
 
+	public override void InputUpdate(Vector2 moveStick){
 
-	void Update () {
-
-		float h, v;
-		
-		if(ai_controlled){
-			h = Random.value < ai_turnChance ? Random.value: 0; 
-			v = 0.75f + Random.value * 0.25f;
-		}else{
-			h = Input.GetAxis("Horizontal");
-			v = Input.GetAxis("Vertical");
-		}
-
-
-		
-		if(v < 0)
-			v = v * reverseFactor;
+		if(moveStick.y < 0)
+			moveStick.y *= reverseFactor;
 	
-		Vector3 force = transform.forward * thrust * v * Time.deltaTime;
-		force = Quaternion.Euler(0, motorMaxAngle * -h, 0) * force;
+		Vector3 force = transform.forward * thrust * moveStick.y * Time.deltaTime;
+		force = Quaternion.Euler(0, motorMaxAngle * -moveStick.x, 0) * force;
 
 		Debug.DrawLine(transform.position + transform.forward * motorOffset, transform.position + transform.forward * motorOffset + force);
 		body.AddForceAtPosition(force, transform.position + transform.forward * motorOffset);
 
+	
+	}
+
+	void Update () {
 		//Rope Collision Detection
 		GameObject[] collidingObjects = GetGameObjectsWithTagsInBox(new string[] {"Harpoon", "Boat"}, surfer.transform.position, transform.position, ropeCollisionBox);
 		

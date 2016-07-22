@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Surfer : MonoBehaviour {
+public class Surfer : Controllable{
 
 	private Boat boat;
 	private Rigidbody body;
@@ -15,6 +15,7 @@ public class Surfer : MonoBehaviour {
 
     public bool isDead;
 	
+	[SerializeField] private HarpoonGun harpoonGun;
 	void Start () {
 		joint = GetComponent<Joint>();
 		body = GetComponent<Rigidbody>();
@@ -23,13 +24,17 @@ public class Surfer : MonoBehaviour {
 		boat = connectedTransform.GetComponent<Boat>();
 	}
 	
-	void Update () {
-		if(joint.connectedBody != null){
-			float h = Input.GetAxis("Horizontal");
+	public override void InputUpdate (Vector2 moveStick, Vector2 aimStick, bool shoot) {
+		if(aimStick.magnitude > 0)
+			harpoonGun.AimGun(aimStick);
+		
+		if(shoot)
+			harpoonGun.ShootGun();
 			
+		if(joint.connectedBody != null){
 			transform.LookAt(connectedTransform);
-			body.AddForce(transform.right * h * force);
-			Debug.DrawLine(transform.position, transform.position + transform.right * h * force * 10, Color.green);
+			body.AddForce(transform.right * moveStick.x * force);
+			Debug.DrawLine(transform.position, transform.position + transform.right * moveStick.x * force * 10, Color.green);
 
 		}
 				

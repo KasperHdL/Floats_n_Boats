@@ -3,32 +3,30 @@ using System.Collections;
 
 public class GamePad {
 
-	public static string appendedName = "Joystick";
-
 	public enum Button{
 		A,
 		B,
 		X,
 		Y,
-		LeftButton,
-		RightButton,
+		LB,
+		RB,
 		Up,
 		Right,
 		Down,
 		Left,
-		LeftStickButton,
-		RightStickButton,
+		LS,
+		RS,
 		Start,
 		Back,
 	}
 
 	public enum Axis{
-		LeftStickX,
-		LeftStickY,
-		RightStickX,
-		RightStickY,
-		LeftTrigger,
-		RightTrigger
+		L_XAxis,
+		L_YAxis,
+		R_XAxis,
+		R_YAxis,
+		TriggersL,
+		TriggersR,
 	}
 
 	
@@ -39,27 +37,27 @@ public class GamePad {
 	}
 
 	public bool GetButtonDown(Button button){
-		return Input.GetButtonDown(appendedName + joystickNumber + button);
+		return Input.GetButtonDown(button + "_" + joystickNumber);
 	}
 
 	public bool GetButtonUp(Button button){
-		return Input.GetButtonUp(appendedName + joystickNumber + button);		
+		return Input.GetButtonUp(button + "_" + joystickNumber);
 	}
 
 	public bool GetButton(Button button){
-		return Input.GetButton(appendedName + joystickNumber + button);
+		return Input.GetButton(button + "_" + joystickNumber);
 	}
 
 
 	public float GetAxis(Axis axis){
-		return Input.GetAxis(appendedName + joystickNumber + axis);	
+		return Input.GetAxis(axis + "_" + joystickNumber);
 	}
 
 	public Vector2 GetStick(bool isLeft){
 		Vector2 v;
 		
-		if(isLeft) v = new Vector2(GetAxis(Axis.LeftStickX), GetAxis(Axis.LeftStickY));
-		else v = new Vector2(GetAxis(Axis.RightStickX), GetAxis(Axis.RightStickY));
+		if(isLeft) v = new Vector2(GetAxis(Axis.L_XAxis), GetAxis(Axis.L_YAxis));
+		else v = new Vector2(GetAxis(Axis.R_XAxis), GetAxis(Axis.R_YAxis));
 
 		return v;
 	}

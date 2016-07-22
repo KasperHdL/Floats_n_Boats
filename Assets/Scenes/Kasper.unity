@@ -137,6 +137,10 @@ Prefab:
       propertyPath: m_ConnectedBody
       value: 
       objectReference: {fileID: 17422176}
+    - target: {fileID: 11409008, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
+      propertyPath: joystickNumber
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
   m_IsPrefabParent: 0
@@ -196,6 +200,10 @@ Prefab:
     - target: {fileID: 144842, guid: bc04812ce431e439d99056741447f51d, type: 2}
       propertyPath: m_TagString
       value: Boat
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425638, guid: bc04812ce431e439d99056741447f51d, type: 2}
+      propertyPath: joystickNumber
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc04812ce431e439d99056741447f51d, type: 2}
@@ -288,10 +296,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1745689310}
     m_Modifications:
-    - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: ropeCollisionTags.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 425682, guid: bc04812ce431e439d99056741447f51d, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -328,21 +332,9 @@ Prefab:
       propertyPath: surfer
       value: 
       objectReference: {fileID: 1483272176}
-    - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: ropeCollisionBox.x
+    - target: {fileID: 11425638, guid: bc04812ce431e439d99056741447f51d, type: 2}
+      propertyPath: joystickNumber
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: ropeCollisionBox.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: ai_controlled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 144842, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: m_TagString
-      value: Boat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc04812ce431e439d99056741447f51d, type: 2}
@@ -460,6 +452,34 @@ MonoBehaviour:
 Transform:
   m_PrefabParentObject: {fileID: 468042, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
   m_PrefabInternal: {fileID: 38134974}
+--- !u!1 &1535159629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1535159631}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1535159631
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1535159629}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.3666916, y: 0.76069736, z: -3.5484047}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!1 &1735742928
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,6 +618,10 @@ Prefab:
     - target: {fileID: 166130, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
       propertyPath: m_Name
       value: Surfer (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11409008, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
+      propertyPath: joystickNumber
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
