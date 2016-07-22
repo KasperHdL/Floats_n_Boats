@@ -4,7 +4,9 @@ using System.Collections;
 public class HarpoonGun : MonoBehaviour {
 
 	public GameObject harpoonPrefab;
+	public GameObject aim;
 	private Vector3 velocity;
+	private ParticleSystem ps;
 	private float timeStamp;
 	[SerializeField]
 	private float cooldown;
@@ -13,6 +15,7 @@ public class HarpoonGun : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		ps = aim.GetComponent (typeof (ParticleSystem)) as ParticleSystem;
 		timeStamp = 0;
 		cooldown = 5;
 		velocity = new Vector3 (1,0,0);
@@ -31,10 +34,12 @@ public class HarpoonGun : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.Space) && Time.time > timeStamp){
 			Shoot (velocity, harpoonPrefab);
+			ps.Play();
 			timeStamp = Time.time + cooldown;
 		}
 
-		Debug.DrawLine(transform.position, velocity*10, Color.green);
+		aim.transform.rotation = Quaternion.LookRotation(velocity);
+		Debug.DrawLine(transform.position, velocity * 10, Color.green);
 	}
 
 	public void Shoot(Vector3 vel, GameObject prefab){
