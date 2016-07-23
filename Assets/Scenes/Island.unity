@@ -50,12 +50,12 @@ LightmapSettings:
     m_AlbedoBoost: 1
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 0
-    m_EnableRealtimeLightmaps: 0
+    m_EnableBakedLightmaps: 1
+    m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 3
-    m_Resolution: 2
-    m_BakeResolution: 40
+    m_Resolution: 1
+    m_BakeResolution: 10
     m_TextureWidth: 1024
     m_TextureHeight: 1024
     m_AOMaxDistance: 1
@@ -66,7 +66,7 @@ LightmapSettings:
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 112000001, guid: 345c913fcd834f94aa7503ec35ab36d3,
+  m_LightingDataAsset: {fileID: 112000022, guid: 345c913fcd834f94aa7503ec35ab36d3,
     type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -546,6 +546,14 @@ Prefab:
       propertyPath: m_MaxDistance
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 468042, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 89.980194
+      objectReference: {fileID: 0}
+    - target: {fileID: 468042, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
   m_IsPrefabParent: 0
@@ -629,7 +637,7 @@ MonoBehaviour:
     color: {r: 0, g: 0.04827571, b: 1, a: 0}
     boat: {fileID: 1564543304}
     surf: {fileID: 1343632806}
-  roundLengthSeconds: 120
+  roundLengthSeconds: 30
   playableZone: {fileID: 753548867}
 --- !u!4 &1514649680
 Transform:
@@ -689,10 +697,10 @@ Light:
   m_Shadows:
     m_Type: 2
     m_Resolution: 3
-    m_Strength: 0.33
-    m_Bias: 0.08
+    m_Strength: 0.376
+    m_Bias: 0.09
     m_NormalBias: 0
-    m_NearPlane: 3.7
+    m_NearPlane: 0.1
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
@@ -701,7 +709,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_Lightmapping: 4
-  m_BounceIntensity: 1.2
+  m_BounceIntensity: 2.81
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
@@ -711,10 +719,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1544138770}
-  m_LocalRotation: {x: 0.40821794, y: -0.23456973, z: 0.109381676, w: 0.87542605}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -810,7 +818,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1574303947}
   m_LocalRotation: {x: 0.12667994, y: 0.8661493, z: -0.38053572, w: 0.29821151}
-  m_LocalPosition: {x: -39.5, y: 77.3, z: 49.1}
+  m_LocalPosition: {x: -37.3, y: 73.4, z: 46.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 47.2866, y: 141.7255, z: -0.6346}
   m_Children: []
