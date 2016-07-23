@@ -49,7 +49,7 @@ public class Boat : Controllable {
 
 	void Update () {
 		//Rope Collision Detection
-		GameObject[] collidingObjects = GetGameObjectsWithTagsInBox(new string[] {"Harpoon", "Boat"}, surfer.transform.position, transform.position, ropeCollisionBox);
+		GameObject[] collidingObjects = GetGameObjectsWithTagsInBox(new string[] {"Harpoon"}, surfer.transform.position, transform.position, ropeCollisionBox);
 		
 		//  DEBUG BOX
 		
@@ -66,19 +66,13 @@ public class Boat : Controllable {
 			if(obj == gameObject || obj == surfer.gameObject)
 				continue;
 			
-			if(collidingObjects[i].tag == "Harpoon"){
-				RopeHarpoonCollision(collidingObjects[i]);	
-			}else if(collidingObjects[i].tag == "Boat"){
-				RopeBoatCollision(collidingObjects[i]);
+			if(obj.tag == "Harpoon"){
+				if(obj.GetComponent<Harpoon>().surfer != surfer)
+					RopeHarpoonCollision(obj);	
 			}
 		}
 
 	}
-	private void RopeBoatCollision(GameObject boat){
-		//Disconnect Rope
-		surfer.DisconnectRope();
-	}
-
 	private void RopeHarpoonCollision(GameObject harpoon){
 		//check if friendly
 		//disconnect rope		
