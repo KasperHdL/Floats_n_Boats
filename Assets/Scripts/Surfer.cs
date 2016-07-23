@@ -51,11 +51,13 @@ public class Surfer : Controllable{
 			harpoonGun.ShootGun();
 			
 		if(joint.connectedBody == boatBody){
+			transform.rotation = Quaternion.LookRotation(Vector3.up, connectedTransform.position - transform.position);
 			body.AddForce(transform.right * moveStick.x * force);
 			Debug.DrawLine(transform.position, transform.position + transform.right * moveStick.x * force * 10, Color.green);
 
 		}else{
 			//free floating
+			transform.rotation = Quaternion.LookRotation(Vector3.up, Vector3.forward);
 		}
 				
 	}

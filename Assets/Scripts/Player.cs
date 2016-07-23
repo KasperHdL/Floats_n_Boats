@@ -31,8 +31,8 @@ public class Player : MonoBehaviour {
 				0.75f + Random.value * 0.25f
 			);
 		}else{
-			stick = gamepad.GetStick(true);
-			stick.y = -stick.y;
+			stick.y = gamepad.GetAxis(GamePad.Axis.TriggersR);
+			stick.x = gamepad.GetAxis(GamePad.Axis.L_XAxis);
 		}
 		if(isControllingBoat){
 			controllable.InputUpdate(stick);
