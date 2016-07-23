@@ -19,11 +19,8 @@ public class HarpoonGun : MonoBehaviour {
 	[SerializeField] private float harpoonForce = 1000f;
 	private Vector3 direction = new Vector3(0,0,1);
 
-	private Camera camera;
-
 	void Start () {
 		ps = aim.GetComponent<ParticleSystem>();
-		camera = Camera.main;
 		indicatorColor = skillshotIndicator.color;
 		surferCollider = surfer.GetComponent<Collider>();
 	}

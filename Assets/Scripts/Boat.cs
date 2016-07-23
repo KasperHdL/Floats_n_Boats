@@ -3,11 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Boat : Controllable {
-	private Rigidbody body;
-	private RigidbodyConstraints constraints;
+	public Rigidbody body;
 
 	[SerializeField] private Surfer surfer;
-	private Joint ropeJoint;
 	
 	[Header("Movement")]
 	[SerializeField] private float motorOffset;
@@ -22,10 +20,7 @@ public class Boat : Controllable {
 
 	
 	void Start () {
-		body      = GetComponent<Rigidbody>();
-		ropeJoint = surfer.GetComponent<Joint>();
-		constraints = body.constraints;
-
+		body = GetComponent<Rigidbody>();
 	}
 
 	public override void InputUpdate(Vector2 moveStick){
@@ -78,18 +73,7 @@ public class Boat : Controllable {
 		//disconnect rope		
 		surfer.DisconnectRope();
 	}
-
-    public void EnablePhysics()
-    {
-		body.useGravity = true;
-        body.constraints = new RigidbodyConstraints(); // Just reset the damn thing
-	} 
 	
-    public void DisablePhysics()
-    {
-		body.useGravity = false;
-        body.constraints = constraints; // Just reset the damn thing
-    }
 	//************************
 	// Public Static Methods
 	
