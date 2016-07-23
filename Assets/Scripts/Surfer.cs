@@ -90,13 +90,9 @@ public class Surfer : Controllable{
 	public void OnCollisionEnter(Collision collision){		
 		GameObject g = collision.gameObject;
 		if(g.tag == "Boat"){
-			Boat b = g.GetComponent<Boat>();
-			if(b == boat){
-				if(joint.connectedBody != boatBody){
-					ConnectRope(boatBody);
-				}
-			}else{
-				DisconnectRope();
+			Boat b = g.transform.parent.GetComponent<Boat>();
+			if(b == boat &&	joint.connectedBody != boatBody){
+				ConnectRope(boatBody);
 			}
 		}else if(g.tag == "Harpoon"){
 			isDead = true;
