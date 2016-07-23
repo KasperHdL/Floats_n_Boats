@@ -38,6 +38,8 @@ public class GameStateInspector : MonoBehaviour {
         {
             if(team.surf.transform.position.y < deathYLevel){
                 team.surf.isDead = true;
+                
+                GameState.CheckIfTeamWon();
             }
         }
  
