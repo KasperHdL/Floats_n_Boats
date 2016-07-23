@@ -3,6 +3,8 @@ using System.Collections;
 
 public class SelectionState : MonoBehaviour
 {
+    public Cam camera;
+
     public GameObject[] slots = new GameObject[4];
     public GamePad[] pads = new GamePad[4];
     public Button[] buttons = new Button[4];
@@ -35,7 +37,8 @@ public class SelectionState : MonoBehaviour
                     colorChanger[i].NextColor(GamePad.Button.LS);
                 if (pads[i].GetButtonDown(GamePad.Button.RB))
                     colorChanger[i].NextColor(GamePad.Button.RB);
-            } else
+            }
+            else
             {
                 if (pads[i].GetButtonDown(GamePad.Button.Y))
                     SelectSlot(i, 0);
@@ -55,13 +58,42 @@ public class SelectionState : MonoBehaviour
 
     IEnumerator StartGame()
     {
-        yield return new WaitForSeconds(3);
+        occupiedSlots = 0;
+
+        float startTime = Time.time;
+
+        Color[] startColors = new Color[4];
+        for(int i = 0; i < startColors.Length;i++)
+        {
+            startColors[i] = buttons[i].occupiedColor;
+        }
+
+        float t = 0f;
+
+        while(t < 1f)
+        {
+            for(int i = 0; i < buttons.Length;i++)
+            {
+                buttons[i].outerShell.material.color = Color.Lerp(startColors[i], new Color(0, 0, 0, 0), t);
+                buttons[i].innerShell.material.color = Color.Lerp(startColors[i], new Color(0, 0, 0, 0), t);
+
+                t += Time.deltaTime / 3f;
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
 
         for(int i = 0; i < slots.Length;i++)
         {
             slots[i].GetComponent<Player>().enabled = true;
             buttons[i].enabled = false;
         }
+
+        camera.enabled = true;
+
+        Debug.Log("Game Started");
+
+        this.enabled = false;
     }
 
     bool SelectSlot(int joystickNumber, int slot)

@@ -9,8 +9,8 @@ public class Button : MonoBehaviour
 
     private float rotation;
     private Quaternion startRotation;
-    private MeshRenderer outerShell;
-    private MeshRenderer innerShell;
+    public MeshRenderer outerShell;
+    public MeshRenderer innerShell;
 
     // Use this for initialization
     void Start()
@@ -39,12 +39,12 @@ public class Button : MonoBehaviour
 
         while (t < 1f)
         {
-            t += 1.5f * Time.fixedDeltaTime;
+            t += 1.5f * Time.deltaTime;
 
             outerShell.material.color = Color.Lerp(oc, occupiedColor, t);
             innerShell.material.color = Color.Lerp(ic, occupiedColor, t);
 
-            yield return new WaitForFixedUpdate();
+            yield return new WaitForEndOfFrame();
         }
     }
 }
