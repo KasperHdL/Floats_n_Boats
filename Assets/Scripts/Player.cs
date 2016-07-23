@@ -6,10 +6,6 @@ public class Player : MonoBehaviour {
 	public int joystickNumber;
     public GamePad gamepad;
 
-    public Material playerMaterial;
-    public Color[] colorsToChooseFrom;
-    public int currentColorIndex;
-
 	private Controllable controllable;
 	private bool isControllingBoat;
 
@@ -21,21 +17,6 @@ public class Player : MonoBehaviour {
         gamepad = new GamePad(joystickNumber);
         controllable = GetComponent<Controllable>();
         isControllingBoat = controllable is Boat;
-    }
-
-    void NextColor(GamePad.Button button)
-    {
-        switch(button)
-        {
-            case GamePad.Button.Left:
-                currentColorIndex--;
-                break;
-            case GamePad.Button.Right:
-                currentColorIndex++;
-                break;
-        }
-
-        playerMaterial.color = colorsToChooseFrom[currentColorIndex];
     }
 
 	void FixedUpdate () {
