@@ -3,12 +3,14 @@ using System.Collections;
 
 public class HarpoonGun : MonoBehaviour {
 
-	public GameObject harpoonPrefab;
-	public GameObject projectile;
-	public GameObject aim;
+	[SerializeField] private GameObject harpoonPrefab;
+	[SerializeField] private GameObject projectile;
+	[SerializeField] private GameObject aim;
+	[SerializeField] private SpriteRenderer skillshotIndicator;
+	private Color indicatorColor;
 	private ParticleSystem ps;
 	private float nextShootTime;
-	[SerializeField] private float cooldown = 5f;
+	[SerializeField] private float cooldown = 1f;
 	[SerializeField] private float harpoonForce = 1000f;
 	private Vector3 direction = new Vector3(0,0,1);
 
@@ -17,18 +19,30 @@ public class HarpoonGun : MonoBehaviour {
 	void Start () {
 		ps = aim.GetComponent<ParticleSystem>();
 		camera = Camera.main;
+		indicatorColor = skillshotIndicator.color;
 	}
 	
 	void Update(){
 		if (Time.time > nextShootTime && projectile.activeSelf == false)
-		projectile.SetActive (true);
+			projectile.SetActive (true);
 	
+		float t = (Time.time - (nextShootTime - cooldown)) / cooldown;
+		
+		Color c = indicatorColor;
+		
+		if(t < 1f)
+			c.a = 0.5f * t;
+		else
+			c.a = 1f;
+		
+		skillshotIndicator.color = c;
+
+		transform.LookAt(transform.position + direction);
+		
 	}
 		
 	public void AimGun(Vector2 aimStick){
-		direction = new Vector3(aimStick.x, 0, aimStick.y);
-		transform.LookAt(transform.position + direction);
-		
+		direction = Vector3.right * -aimStick.x + Vector3.forward * -aimStick.y;
 	}	
 
 
