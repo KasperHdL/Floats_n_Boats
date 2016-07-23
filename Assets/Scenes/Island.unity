@@ -432,6 +432,10 @@ Prefab:
       propertyPath: m_Name
       value: Surf_2
       objectReference: {fileID: 0}
+    - target: {fileID: 11409008, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
+      propertyPath: joystickNumber
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
   m_IsPrefabParent: 0

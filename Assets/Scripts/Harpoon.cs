@@ -18,6 +18,6 @@ public class Harpoon : MonoBehaviour {
 			Destroy (gameObject);
 			
 		Debug.DrawLine (transform.position, transform.position + body.velocity);
-		transform.rotation = Quaternion.LookRotation(body.velocity);
+//		transform.rotation = Quaternion.LookRotation(body.velocity);
 	}
 }

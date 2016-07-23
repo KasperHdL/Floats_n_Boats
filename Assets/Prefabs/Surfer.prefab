@@ -165,6 +165,7 @@ GameObject:
   - 145: {fileID: 14549170}
   - 114: {fileID: 11483946}
   - 114: {fileID: 11409008}
+  - 120: {fileID: 12066886}
   m_Layer: 0
   m_Name: Surfer
   m_TagString: Surfer
@@ -698,7 +699,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 2b73bb5071fd32f4e9c65a590d3789ea, type: 2}
+  - {fileID: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -828,7 +829,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1715dade8b8f402489e71cb6dc0bc091, type: 2}
+  - {fileID: 2100000, guid: 18da35744effe7549870e1225f5f3509, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1036,7 +1037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299830cbd3b86429b91d8599570ecb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystickNumber: 2
+  joystickNumber: 4
   ai_controlled: 0
   ai_turnChance: 0.5
 --- !u!114 &11449070
@@ -1050,10 +1051,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c38461933a8545a7a2090396f86e920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  harpoonPrefab: {fileID: 100000, guid: 1212e9facab3c402e91413dcb8314cf2, type: 3}
+  harpoonPrefab: {fileID: 130212, guid: a801e8d49165d444191eee608125104a, type: 2}
   projectile: {fileID: 146348}
   aim: {fileID: 187276}
-  cooldown: 5
+  cooldown: 1
   harpoonForce: 1000
 --- !u!114 &11483946
 MonoBehaviour:
@@ -1067,11 +1068,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anchorPoint: {fileID: 5469870}
+  boatRopeAnchor: {fileID: 0}
+  ropeOffset: 0.3
   dragWhenDetached: 0.25
   controlling: 0
   force: 0.1
   isDead: 0
   harpoonGun: {fileID: 11449070}
+--- !u!120 &12066886
+LineRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166130}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 22db240acc0587f4e867ea259d60a7ca, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    startWidth: 0.2
+    endWidth: 0.2
+    m_StartColor:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_EndColor:
+      serializedVersion: 2
+      rgba: 4294967295
+  m_UseWorldSpace: 1
 --- !u!135 &13590972
 SphereCollider:
   m_ObjectHideFlags: 1

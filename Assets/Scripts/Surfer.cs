@@ -10,6 +10,9 @@ public class Surfer : Controllable{
 	private Transform connectedTransform;
 	private Joint joint;
 	private RigidbodyConstraints constraints;
+	private LineRenderer rope;
+	[SerializeField] private Transform boatRopeAnchor;
+	[SerializeField] private float ropeOffset;
 
 	private float dragWhenAttached;
 	[SerializeField] private float dragWhenDetached = 0.25f;
@@ -23,12 +26,23 @@ public class Surfer : Controllable{
 	void Start () {
 		joint = GetComponent<Joint>();
 		body = GetComponent<Rigidbody>();
+		rope = GetComponent<LineRenderer>();
 		constraints = body.constraints;
 		connectedTransform = joint.connectedBody.transform;
 		boat = connectedTransform.GetComponent<Boat>();
 		boatBody = boat.GetComponent<Rigidbody>();
 
 		dragWhenAttached = body.drag;
+
+	}
+
+	void FixedUpdate(){
+		if(joint.connectedBody == boatBody){
+			//rope connected
+			Vector3 delta = boatRopeAnchor.position - transform.position;
+			
+			rope.SetPositions(new Vector3[2] {boatRopeAnchor.position, transform.position + delta.normalized * ropeOffset});
+		}
 	}
 	
 	public override void InputUpdate (Vector2 moveStick, Vector2 aimStick, bool shoot) {
