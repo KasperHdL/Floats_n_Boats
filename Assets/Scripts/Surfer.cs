@@ -39,7 +39,6 @@ public class Surfer : Controllable{
 			harpoonGun.ShootGun();
 			
 		if(joint.connectedBody == boatBody){
-			transform.LookAt(connectedTransform);
 			body.AddForce(transform.right * moveStick.x * force);
 			Debug.DrawLine(transform.position, transform.position + transform.right * moveStick.x * force * 10, Color.green);
 
