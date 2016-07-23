@@ -27,14 +27,15 @@ public class HarpoonGun : MonoBehaviour {
 		
 	public void AimGun(Vector2 aimStick){
 		direction = new Vector3(aimStick.x, 0, aimStick.y);
-		transform.rotation = Quaternion.LookRotation(transform.position + direction.normalized);
+		transform.LookAt(transform.position + direction);
+		
 	}	
 
 
 	public bool ShootGun(){
 		if (Time.time > nextShootTime){
 			projectile.SetActive (false);
-			Shoot (direction);
+			Shoot ();
 			ps.Play();
 			nextShootTime = Time.time + cooldown;
 			return true;
@@ -42,9 +43,9 @@ public class HarpoonGun : MonoBehaviour {
 		return false;
 	}
 
-	public void Shoot(Vector3 direction){
+	public void Shoot(){
 		GameObject g = Instantiate (harpoonPrefab, transform.position, transform.rotation) as GameObject;
 		Harpoon h = g.GetComponent<Harpoon>();
-		h.GetComponent<Rigidbody>().AddForce(direction * harpoonForce);
+		h.GetComponent<Rigidbody>().AddForce(transform.forward * harpoonForce);
 	}
 }
