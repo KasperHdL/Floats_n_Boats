@@ -6,15 +6,15 @@ public class Boat : Controllable {
 	private Rigidbody body;
 	private RigidbodyConstraints constraints;
 
-	private bool ropeConnected = true;
 	[SerializeField] private Surfer surfer;
 	private Joint ropeJoint;
 	
 	[Header("Movement")]
 	[SerializeField] private float motorOffset;
 	[SerializeField] private float motorMaxAngle;
-	[SerializeField] private float thrust;
+	[SerializeField] private float force;
 	[SerializeField] private float reverseFactor = 0.1f;
+	[SerializeField] private float fullForceThreshold = 0.5f;
 
 	[Header("Collision")]
 	[SerializeField] private Vector2 ropeCollisionBox;
@@ -30,14 +30,19 @@ public class Boat : Controllable {
 
 	public override void InputUpdate(Vector2 moveStick){
 
-		if(moveStick.y < 0)
-			moveStick.y *= reverseFactor;
+		//scale with threshold
+		float thrust = Mathf.Min(moveStick.magnitude * (1 / fullForceThreshold), 1f);
 	
-		Vector3 force = transform.forward * thrust * moveStick.y * Time.deltaTime;
-		force = Quaternion.Euler(0, motorMaxAngle * -moveStick.x, 0) * force;
+		//reverse
+		if(moveStick.y < 0)
+			thrust =  -thrust * reverseFactor;
+			
+		//calculate force and rotate force 
+		Vector3 motorForce = transform.forward * force * thrust * Time.deltaTime;
+		motorForce = Quaternion.Euler(0, motorMaxAngle * -moveStick.x, 0) * motorForce;
 
-		Debug.DrawLine(transform.position + transform.forward * motorOffset, transform.position + transform.forward * motorOffset + force);
-		body.AddForceAtPosition(force, transform.position + transform.forward * motorOffset);
+		Debug.DrawLine(transform.position + transform.forward * motorOffset, transform.position + transform.forward * motorOffset + motorForce);
+		body.AddForceAtPosition(motorForce, transform.position + transform.forward * motorOffset);
 
 	
 	}
@@ -71,26 +76,14 @@ public class Boat : Controllable {
 	}
 	private void RopeBoatCollision(GameObject boat){
 		//Disconnect Rope
-		DisconnectRope();
+		surfer.DisconnectRope();
 	}
 
 	private void RopeHarpoonCollision(GameObject harpoon){
 		//check if friendly
 		//disconnect rope		
-		DisconnectRope();
+		surfer.DisconnectRope();
 	}
-
-	public void DisconnectRope(){
-		ropeJoint.connectedBody = null;
-		ropeConnected = false;
-
-	}
-
-	public void ConnectRope(){
-		ropeJoint.connectedBody = body;
-		ropeConnected = true;
-	}
-
 
     public void EnablePhysics()
     {

@@ -5,10 +5,14 @@ public class Surfer : Controllable{
 
 	private Boat boat;
 	private Rigidbody body;
+	private Rigidbody boatBody;
 	public Rigidbody anchorPoint;
 	private Transform connectedTransform;
 	private Joint joint;
 	private RigidbodyConstraints constraints;
+
+	private float dragWhenAttached;
+	[SerializeField] private float dragWhenDetached = 0.25f;
 	
 	[SerializeField] private bool controlling = false;
 	[SerializeField] private float force = 25;
@@ -22,6 +26,9 @@ public class Surfer : Controllable{
 		constraints = body.constraints;
 		connectedTransform = joint.connectedBody.transform;
 		boat = connectedTransform.GetComponent<Boat>();
+		boatBody = boat.GetComponent<Rigidbody>();
+
+		dragWhenAttached = body.drag;
 	}
 	
 	public override void InputUpdate (Vector2 moveStick, Vector2 aimStick, bool shoot) {
@@ -31,11 +38,13 @@ public class Surfer : Controllable{
 		if(shoot)
 			harpoonGun.ShootGun();
 			
-		if(joint.connectedBody != null){
+		if(joint.connectedBody == boatBody){
 			transform.LookAt(connectedTransform);
 			body.AddForce(transform.right * moveStick.x * force);
 			Debug.DrawLine(transform.position, transform.position + transform.right * moveStick.x * force * 10, Color.green);
 
+		}else{
+			//free floating
 		}
 				
 	}
@@ -55,11 +64,13 @@ public class Surfer : Controllable{
 	
 	public void DisconnectRope(){
 		joint.connectedBody = anchorPoint;
+		body.drag = dragWhenDetached;
 
 	}
 
 	public void ConnectRope(Rigidbody body){
 		joint.connectedBody = body;
+		body.drag = dragWhenAttached;
 		
 	}
 	
@@ -68,11 +79,11 @@ public class Surfer : Controllable{
 		if(g.tag == "Boat"){
 			Boat b = g.GetComponent<Boat>();
 			if(b == boat){
-				if(joint.connectedBody == anchorPoint)
-					ConnectRope(b.GetComponent<Rigidbody>());
+				if(joint.connectedBody != boatBody){
+					ConnectRope(boatBody);
+				}
 			}else{
 				DisconnectRope();
-				boat.DisconnectRope();
 			}
 		}else if(g.tag == "Harpoon"){
 			isDead = true;

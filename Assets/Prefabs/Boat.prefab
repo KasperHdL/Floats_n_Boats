@@ -519,7 +519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystickNumber: 3
-  ai_controlled: 1
+  ai_controlled: 0
   ai_turnChance: 0.5
 --- !u!114 &11488152
 MonoBehaviour:
@@ -533,10 +533,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   surfer: {fileID: 0}
-  motorOffset: -0.25
-  motorMaxAngle: 10
-  thrust: 800
+  motorOffset: -0.15
+  motorMaxAngle: 4
+  force: 800
   reverseFactor: 0.1
+  fullForceThreshold: 0.5
   ropeCollisionBox: {x: 1, y: 1}
 --- !u!1001 &100100000
 Prefab:
