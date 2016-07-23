@@ -455,10 +455,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166130}
-  m_LocalRotation: {x: -0.0000001391735, y: 0.7071067, z: 0.70710695, w: 0.00000046938658}
-  m_LocalPosition: {x: 11.315, y: 0, z: -8.819}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
+  m_LocalPosition: {x: 0.85, y: 0, z: -6.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: -90, y: 179.9999, z: 0}
+  m_LocalEulerAnglesHint: {x: 89.980194, y: 0, z: 0}
   m_Children:
   - {fileID: 484680}
   - {fileID: 485486}
@@ -1037,7 +1037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299830cbd3b86429b91d8599570ecb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystickNumber: 4
+  joystickNumber: 2
   ai_controlled: 0
   ai_turnChance: 0.5
 --- !u!114 &11449070
@@ -1055,6 +1055,7 @@ MonoBehaviour:
   projectile: {fileID: 146348}
   aim: {fileID: 187276}
   skillshotIndicator: {fileID: 21295876}
+  surferCollider: {fileID: 13590972}
   cooldown: 1
   harpoonForce: 1000
 --- !u!114 &11483946
@@ -1141,7 +1142,7 @@ SpringJoint:
   m_Spring: 1
   m_Damper: 0.3
   m_MinDistance: 0
-  m_MaxDistance: 5
+  m_MaxDistance: 2
   m_Tolerance: 0.025
   m_BreakForce: Infinity
   m_BreakTorque: Infinity

@@ -7,6 +7,10 @@ public class HarpoonGun : MonoBehaviour {
 	[SerializeField] private GameObject projectile;
 	[SerializeField] private GameObject aim;
 	[SerializeField] private SpriteRenderer skillshotIndicator;
+
+	[SerializeField] private Collider surferCollider;
+
+	
 	private Color indicatorColor;
 	private ParticleSystem ps;
 	private float nextShootTime;
@@ -61,5 +65,6 @@ public class HarpoonGun : MonoBehaviour {
 		GameObject g = Instantiate (harpoonPrefab, transform.position, transform.rotation) as GameObject;
 		Harpoon h = g.GetComponent<Harpoon>();
 		h.GetComponent<Rigidbody>().AddForce(transform.forward * harpoonForce);
+		Physics.IgnoreCollision(surferCollider, h.GetComponent<Collider>());
 	}
 }
