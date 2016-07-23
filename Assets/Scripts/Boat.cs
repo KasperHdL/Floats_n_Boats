@@ -17,23 +17,31 @@ public class Boat : Controllable {
 	[Header("Collision")]
 	[SerializeField] private Vector2 ropeCollisionBox;
 
+	[SerializeField] private GameObject prefab_boatTrail;
+	[SerializeField] private float particleDistance = 0.25f;
+	private Vector3 lastParticlePoint;
 
+	private AudioSource audioSource;
 	
 	void Start () {
 		body = GetComponent<Rigidbody>();
+		audioSource = GetComponent<AudioSource>();
 	}
 
 	public override void InputUpdate(Vector2 moveStick){
 
 		//scale with threshold
-		float thrust = Mathf.Min(moveStick.magnitude * (1 / fullForceThreshold), 1f);
+		//float thrust = Mathf.Min(moveStick.magnitude * (1 / fullForceThreshold), 1f);
 	
 		//reverse
-		if(moveStick.y < 0)
-			thrust =  -thrust * reverseFactor;
+		//if(moveStick.y < 0)
+		//	thrust =  -thrust * reverseFactor;
+		if(Mathf.Abs(moveStick.x) > .5f && moveStick.y < 0.1f)
+			moveStick.y = 0.15f;
 			
+		audioSource.pitch = body.velocity.magnitude / 10f * 0.6f + 1.0f + Random.value * 0.2f;
 		//calculate force and rotate force 
-		Vector3 motorForce = transform.forward * force * thrust * Time.deltaTime;
+		Vector3 motorForce = transform.forward * force * moveStick.y * Time.deltaTime;
 		motorForce = Quaternion.Euler(0, motorMaxAngle * -moveStick.x, 0) * motorForce;
 
 		Debug.DrawLine(transform.position + transform.forward * motorOffset, transform.position + transform.forward * motorOffset + motorForce);
@@ -54,8 +62,24 @@ public class Boat : Controllable {
 			Debug.DrawLine(transform.position, center + delta.normalized * (delta.magnitude / 2),Color.red);
 			Debug.DrawLine(center, center + Vector3.up * ropeCollisionBox.y);
 
+		// Particle
+
+		if((new Vector3(transform.position.x, 1, transform.position.z) - lastParticlePoint).magnitude > particleDistance){
+			Vector3 point = transform.position;
+			point.y = 1f;
 			
+			RaycastHit hit;
+			if(Physics.Raycast(point, -Vector3.up, out hit, 100f, 1 << 4)){
+				
+				Instantiate(prefab_boatTrail, hit.point + hit.normal * 0.1f, Quaternion.LookRotation(transform.forward, hit.normal));	
+			}
+
+			lastParticlePoint = point;
+			
+		}
+		
 		for(int i = 0; i < collidingObjects.Length; i++){
+			
 			GameObject obj = collidingObjects[i];
 			
 			if(obj == gameObject || obj == surfer.gameObject)

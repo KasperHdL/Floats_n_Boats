@@ -1043,7 +1043,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 7
+    axis: 5
     joyNum: 1
   - serializedVersion: 3
     m_Name: TriggersR_2
@@ -1059,7 +1059,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 9
+    axis: 5
     joyNum: 2
   - serializedVersion: 3
     m_Name: TriggersR_3
@@ -1075,7 +1075,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 9
+    axis: 5
     joyNum: 3
   - serializedVersion: 3
     m_Name: TriggersR_4
@@ -1091,7 +1091,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 9
+    axis: 5
     joyNum: 4
   - serializedVersion: 3
     m_Name: TriggersL_1
@@ -1107,7 +1107,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 8
+    axis: 5
     joyNum: 1
   - serializedVersion: 3
     m_Name: TriggersL_2
