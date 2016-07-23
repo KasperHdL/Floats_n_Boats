@@ -27,3 +27,5 @@ FileManager.data
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
+
+InputManager.asset
