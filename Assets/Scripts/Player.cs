@@ -4,22 +4,39 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
 	public int joystickNumber;
-	public GamePad gamepad;
+    public GamePad gamepad;
+
+    public Material playerMaterial;
+    public Color[] colorsToChooseFrom;
+    public int currentColorIndex;
 
 	private Controllable controllable;
 	private bool isControllingBoat;
-
 
 	[Header("Super Simple AI")]
 	[SerializeField] private bool ai_controlled = false;
 	[SerializeField, Range(0,1)] private float ai_turnChance = 0.5f;
 
+    void Start() {
+        gamepad = new GamePad(joystickNumber);
+        controllable = GetComponent<Controllable>();
+        isControllingBoat = controllable is Boat;
+    }
 
-	void Start(){
-		gamepad = new GamePad(joystickNumber);
-		controllable = GetComponent<Controllable>();
-		isControllingBoat = controllable is Boat; 
-	}
+    void NextColor(GamePad.Button button)
+    {
+        switch(button)
+        {
+            case GamePad.Button.Left:
+                currentColorIndex--;
+                break;
+            case GamePad.Button.Right:
+                currentColorIndex++;
+                break;
+        }
+
+        playerMaterial.color = colorsToChooseFrom[currentColorIndex];
+    }
 
 	void FixedUpdate () {
 
