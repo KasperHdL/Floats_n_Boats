@@ -19,6 +19,7 @@ public class GameStateInspector : MonoBehaviour {
 
     private float roundStartTime;
 
+    public float deathYLevel = -5f;
     // Use this for initialization
     void Start ()
     {
@@ -32,21 +33,14 @@ public class GameStateInspector : MonoBehaviour {
     {
         GameState.roundTimeSeconds = Time.time - roundStartTime;
 
-        CheckIfPlayersExitedSphere();
-    }
-
-    private void CheckIfPlayersExitedSphere()
-    {
+        //Check fi players is out of bounds
         foreach(Team team in GameState.teams)
         {
-            if(!playableZone.sphere.bounds.Contains(team.surf.transform.position) || 
-               !playableZone.sphere.bounds.Contains(team.boat.transform.position))
-            {
+            if(team.surf.transform.position.y < deathYLevel){
                 team.surf.isDead = true;
-
-                team.surf.EnablePhysics();
-                team.boat.EnablePhysics();
             }
         }
+ 
     }
+
 }

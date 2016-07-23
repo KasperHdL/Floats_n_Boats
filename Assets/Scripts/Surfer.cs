@@ -9,7 +9,6 @@ public class Surfer : Controllable{
 	public Rigidbody anchorPoint;
 	private Transform connectedTransform;
 	private Joint joint;
-	private RigidbodyConstraints constraints;
 	private LineRenderer rope;
 	[SerializeField] private Transform boatRopeAnchor;
 	[SerializeField] private float ropeOffset;
@@ -17,7 +16,6 @@ public class Surfer : Controllable{
 	private float dragWhenAttached;
 	[SerializeField] private float dragWhenDetached = 0.25f;
 	
-	[SerializeField] private bool controlling = false;
 	[SerializeField] private float force = 25;
 
     public bool isDead;
@@ -27,10 +25,10 @@ public class Surfer : Controllable{
 		joint = GetComponent<Joint>();
 		body = GetComponent<Rigidbody>();
 		rope = GetComponent<LineRenderer>();
-		constraints = body.constraints;
 		connectedTransform = joint.connectedBody.transform;
+
 		boat = connectedTransform.GetComponent<Boat>();
-		boatBody = boat.GetComponent<Rigidbody>();
+		boatBody = boat.body;
 
 		dragWhenAttached = body.drag;
 
@@ -61,19 +59,6 @@ public class Surfer : Controllable{
 		}
 				
 	}
-
-    public void EnablePhysics()
-    {
-		body.useGravity = true;
-        body.constraints = new RigidbodyConstraints(); // Just reset the damn thing
-	} 
-	
-    public void DisablePhysics()
-    {
-		body.useGravity = false;
-        body.constraints = constraints; // Just reset the damn thing
-    }
-
 	
 	public void DisconnectRope(){
 		joint.connectedBody = anchorPoint;
