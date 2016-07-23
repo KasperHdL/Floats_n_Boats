@@ -66,8 +66,9 @@ public class Boat : Controllable {
 			if(obj == gameObject || obj == surfer.gameObject)
 				continue;
 			
-			if(collidingObjects[i].tag == "Harpoon"){
-				RopeHarpoonCollision(collidingObjects[i]);	
+			if(obj.tag == "Harpoon"){
+				if(obj.GetComponent<Harpoon>().surfer != surfer)
+					RopeHarpoonCollision(obj);	
 			}
 		}
 

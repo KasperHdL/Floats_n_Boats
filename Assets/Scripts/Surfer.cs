@@ -78,19 +78,21 @@ public class Surfer : Controllable{
 	public void DisconnectRope(){
 		joint.connectedBody = anchorPoint;
 		body.drag = dragWhenDetached;
-
+		rope.enabled = false;
 	}
 
 	public void ConnectRope(Rigidbody body){
 		joint.connectedBody = body;
 		body.drag = dragWhenAttached;
 		
+		rope.enabled = true;	
 	}
 	
 	public void OnCollisionEnter(Collision collision){		
 		GameObject g = collision.gameObject;
+		
 		if(g.tag == "Boat"){
-			Boat b = g.transform.parent.GetComponent<Boat>();
+			Boat b = g.GetComponent<Boat>();
 			if(b == boat &&	joint.connectedBody != boatBody){
 				ConnectRope(boatBody);
 			}

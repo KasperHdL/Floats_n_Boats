@@ -276,7 +276,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 468042, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.7071068
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 468042, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
       propertyPath: m_LocalRotation.y
@@ -302,23 +302,12 @@ Prefab:
       propertyPath: m_Name
       value: Surf_1
       objectReference: {fileID: 0}
-    - target: {fileID: 2395712, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 18da35744effe7549870e1225f5f3509, type: 2}
-    - target: {fileID: 11409008, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
-      propertyPath: joystickNumber
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 11483946, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
       propertyPath: boatRopeAnchor
       value: 
       objectReference: {fileID: 628531174}
-    - target: {fileID: 14549170, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
-      propertyPath: m_MaxDistance
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9564144, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &317289437 stripped
@@ -370,53 +359,13 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 425682, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 144842, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: m_Name
-      value: Boat_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: ai_controlled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
       propertyPath: surfer
       value: 
       objectReference: {fileID: 317289438}
-    - target: {fileID: 11425638, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: joystickNumber
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 425682, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 2398732, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c4e64d6d2752e4249b7e2947643afeb7, type: 2}
-    - target: {fileID: 11425638, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: ai_controlled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: motorOffset
-      value: -0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: motorMaxAngle
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: force
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: reverseFactor
-      value: 0.5
+    - target: {fileID: 144842, guid: bc04812ce431e439d99056741447f51d, type: 2}
+      propertyPath: m_Name
+      value: Boat_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc04812ce431e439d99056741447f51d, type: 2}
@@ -1030,19 +979,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 468042, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.0000001391735
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 468042, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.7071067
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 468042, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.70710695
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 468042, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.00000046938658
+      value: 0.7071067
       objectReference: {fileID: 0}
     - target: {fileID: 468042, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
       propertyPath: m_RootOrder
@@ -1064,11 +1013,8 @@ Prefab:
       propertyPath: boatRopeAnchor
       value: 
       objectReference: {fileID: 137907012}
-    - target: {fileID: 14549170, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
-      propertyPath: m_MaxDistance
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9564144, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a1339e33d4cd8462d8f5b3f4418e2d7b, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1953540810 stripped

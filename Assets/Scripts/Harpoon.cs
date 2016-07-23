@@ -6,6 +6,7 @@ public class Harpoon : MonoBehaviour {
 	public static float killAltitude = -5f;
 
 	private Rigidbody body;
+	public Surfer surfer;
 
 	// Use this for initialization
 	void Start () {
