@@ -51,7 +51,9 @@ public class Boat : Controllable {
 		body.AddForceAtPosition(motorForce, transform.position + transform.forward * motorOffset);
 
 		model.localRotation = Quaternion.Euler(0, 0, tiltMaxAngle * -body.angularVelocity.y);
-		motorModel.localRotation = Quaternion.Euler(0, motorMaxAngle * 5 * -moveStick.x + 180, 0);
+		
+		if(motorModel == null)
+			motorModel.localRotation = Quaternion.Euler(0, motorMaxAngle * 5 * -moveStick.x + 180, 0);
 	}
 
 	void Update () {
