@@ -6,6 +6,8 @@ public class Boat : Controllable {
 	public Rigidbody body;
 
 	[SerializeField] private Surfer surfer;
+	[SerializeField] private Transform model;
+	[SerializeField] private Transform motorModel;
 	
 	[Header("Movement")]
 	[SerializeField] private float motorOffset;
@@ -13,6 +15,7 @@ public class Boat : Controllable {
 	[SerializeField] private float force;
 	[SerializeField] private float reverseFactor = 0.1f;
 	[SerializeField] private float fullForceThreshold = 0.5f;
+	[SerializeField] private float tiltMaxAngle;
 
 	[Header("Collision")]
 	[SerializeField] private Vector2 ropeCollisionBox;
@@ -47,7 +50,8 @@ public class Boat : Controllable {
 		Debug.DrawLine(transform.position + transform.forward * motorOffset, transform.position + transform.forward * motorOffset + motorForce);
 		body.AddForceAtPosition(motorForce, transform.position + transform.forward * motorOffset);
 
-	
+		model.localRotation = Quaternion.Euler(0, 0, tiltMaxAngle * -body.angularVelocity.y);
+		motorModel.localRotation = Quaternion.Euler(0, motorMaxAngle * 5 * -moveStick.x + 180, 0);
 	}
 
 	void Update () {

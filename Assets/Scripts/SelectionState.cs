@@ -37,6 +37,8 @@ public class SelectionState : MonoBehaviour
                     colorChanger[i].NextColor(GamePad.Button.LS);
                 if (pads[i].GetButtonDown(GamePad.Button.RB))
                     colorChanger[i].NextColor(GamePad.Button.RB);
+                if(pads[i].GetButtonDown(GamePad.Button.Start))
+                    StartCoroutine(StartGame());
             }
             else
             {
@@ -83,10 +85,16 @@ public class SelectionState : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        for(int i = 0; i < slots.Length;i++)
-        {
-            slots[i].GetComponent<Player>().enabled = true;
-            buttons[i].enabled = false;
+        for(int j = 0; j < slots.Length; j++){
+            if(slots[j].GetComponent<Player>() != null){
+                slots[j].GetComponent<Player>().enabled = true;
+            }else{
+                //enable empty players
+                Player p = slots[j].AddComponent<Player>() as Player;            
+                p.controlled = false;
+            }
+            buttons[j].enabled = false;
+
         }
 
         camera.enabled = true;
