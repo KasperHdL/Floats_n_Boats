@@ -407,7 +407,7 @@ MonoBehaviour:
     surf: {fileID: 336664558}
   roundLengthSeconds: 120
   playableZone: {fileID: 0}
-  deathYLevel: -5
+  deathYLevel: -10
 --- !u!1001 &664040153
 Prefab:
   m_ObjectHideFlags: 0
@@ -806,7 +806,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1071406420}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba9dafe5bcbb0dd4dabb74806c4a2324, type: 3}
   m_Name: 
@@ -814,9 +814,19 @@ MonoBehaviour:
   players:
   - {fileID: 1445777874}
   - {fileID: 1182916870}
-  up: {x: 0, y: 0, z: 1}
-  right: {x: 1, y: 0, z: 0}
-  camera: {fileID: 0}
+  up: {x: -0.40824825, y: -0.8164966, z: -0.40824863}
+  right: {x: -0.7071072, y: -0.000000029802322, z: 0.70710665}
+  camera: {fileID: 1071406425}
+  menuPos: {x: 0, y: 0, z: 0}
+  menuRotation: {x: 0, y: 0, z: 0, w: 0}
+  maxSpeed: 1.5
+  maxFovChange: 0.05
+  V3UpMax: 17
+  V3UpMin: 10
+  V3OneMin: 10
+  V3OneMax: 25
+  FOVMin: 30
+  FOVMax: 30
 --- !u!81 &1071406422
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1296,10 +1306,6 @@ Prefab:
       propertyPath: surfer
       value: 
       objectReference: {fileID: 1550717721}
-    - target: {fileID: 11488152, guid: bc04812ce431e439d99056741447f51d, type: 2}
-      propertyPath: tiltMaxAngle
-      value: 15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc04812ce431e439d99056741447f51d, type: 2}
   m_IsPrefabParent: 0
