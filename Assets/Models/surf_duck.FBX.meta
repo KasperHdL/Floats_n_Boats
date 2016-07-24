@@ -1,15 +1,32 @@
 fileFormatVersion: 2
-guid: d7b5617dcc364b44b94f99be157393c4
-timeCreated: 1469206270
+guid: 799e155b5507ad040afafeb0d5a1f5ad
+timeCreated: 1469360747
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: pSphere1
+    100000: beak
+    100002: body
+    100004: eyes
+    100006: pupils
+    100008: //RootNode
+    400000: beak
+    400002: body
+    400004: eyes
+    400006: pupils
+    400008: //RootNode
+    2300000: beak
+    2300002: body
+    2300004: eyes
+    2300006: pupils
+    3300000: beak
+    3300002: body
+    3300004: eyes
+    3300006: pupils
+    4300000: body
+    4300002: eyes
+    4300004: pupils
+    4300006: beak
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -35,12 +52,12 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 20
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -52,9 +69,9 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []

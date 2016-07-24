@@ -1,18 +1,80 @@
 fileFormatVersion: 2
-guid: d7b5617dcc364b44b94f99be157393c4
-timeCreated: 1469206270
+guid: 85ea55c67ae016c44a4da2c56f4eba67
+timeCreated: 1469307161
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: pSphere1
+    100000: ''''
+    100002: A1
+    100004: A2
+    100006: B
+    100008: F
+    100010: //RootNode
+    100012: L
+    100014: N
+    100016: O1
+    100018: O2
+    100020: S1
+    100022: S2
+    100024: T1
+    100026: T2
+    400000: ''''
+    400002: A1
+    400004: A2
+    400006: B
+    400008: F
+    400010: //RootNode
+    400012: L
+    400014: N
+    400016: O1
+    400018: O2
+    400020: S1
+    400022: S2
+    400024: T1
+    400026: T2
+    2300000: ''''
+    2300002: A1
+    2300004: A2
+    2300006: B
+    2300008: F
+    2300010: L
+    2300012: N
+    2300014: O1
+    2300016: O2
+    2300018: S1
+    2300020: S2
+    2300022: T1
+    2300024: T2
+    3300000: ''''
+    3300002: A1
+    3300004: A2
+    3300006: B
+    3300008: F
+    3300010: L
+    3300012: N
+    3300014: O1
+    3300016: O2
+    3300018: S1
+    3300020: S2
+    3300022: T1
+    3300024: T2
+    4300000: B
+    4300002: O1
+    4300004: A1
+    4300006: T1
+    4300008: S1
+    4300010: N
+    4300012: ''''
+    4300014: F
+    4300016: L
+    4300018: O2
+    4300020: A2
+    4300022: T2
+    4300024: S2
     9500000: //RootNode
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
@@ -35,12 +97,12 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 20
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -51,10 +113,10 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 60
+    normalSmoothAngle: 0
     normalImportMode: 1
     tangentImportMode: 3
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []

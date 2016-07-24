@@ -1,15 +1,42 @@
 fileFormatVersion: 2
-guid: d7b5617dcc364b44b94f99be157393c4
-timeCreated: 1469206270
+guid: 6b979b92e97090740909b4b606383059
+timeCreated: 1469360742
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: pSphere1
+    100000: anker
+    100002: boat deck
+    100004: hull
+    100006: hull midsection
+    100008: screw
+    100010: //RootNode
+    100012: windows
+    400000: anker
+    400002: boat deck
+    400004: hull
+    400006: hull midsection
+    400008: screw
+    400010: //RootNode
+    400012: windows
+    2300000: anker
+    2300002: boat deck
+    2300004: hull
+    2300006: hull midsection
+    2300008: screw
+    2300010: windows
+    3300000: anker
+    3300002: boat deck
+    3300004: hull
+    3300006: hull midsection
+    3300008: screw
+    3300010: windows
+    4300000: hull
+    4300002: windows
+    4300004: boat deck
+    4300006: hull midsection
+    4300008: anker
+    4300010: screw
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -35,12 +62,12 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 20
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -52,9 +79,9 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []
