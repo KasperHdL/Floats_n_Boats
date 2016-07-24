@@ -9,6 +9,8 @@ public static class GameState {
 
     public static float roundTimeSeconds;
     public static float roundLengthSeconds;
+    public static bool isResetting = false;
+
 
     public static void CheckIfTeamWon()
     {
@@ -41,9 +43,32 @@ public static class GameState {
     }
 
     private static void EndRound(Team winnerTeam) // Some Team Won
+    
     {
+        if(isResetting)
+            return;
+        
+        Debug.Log(winnerTeam  + " Won!");
+        Camera.main.GetComponent<Cam>().lerpToMenu(5f);
+ 
+        for(int i = 0; i < teams.Length; i++){
+            float offset;
+            if(teams[i].boat == winnerTeam.boat){
+                offset = 1.5f;
+            }else
+            {
+                offset = -1.5f;
+            }
+            teams[i].boat.GetComponent<Player>().lerpToMenu(5f, offset);
+            teams[i].surf.GetComponent<Player>().lerpToMenu(5f, offset);
+            teams[i].surf.isDead = false;
+            
+        }
+
 
     }
+
+    
 }
 
 [System.Serializable]

@@ -5,6 +5,7 @@ using System;
 public class GameStateInspector : MonoBehaviour {
     [Header("Players Settings")]
     public Team[] teams;    
+    private bool localReset = false;
 
     [Header("Boat Settings")]
 
@@ -31,6 +32,9 @@ public class GameStateInspector : MonoBehaviour {
 
     void Update()
     {
+        if(localReset)
+            return;
+            
         GameState.roundTimeSeconds = Time.time - roundStartTime;
 
         //Check fi players is out of bounds
@@ -40,9 +44,27 @@ public class GameStateInspector : MonoBehaviour {
                 team.surf.isDead = true;
                 
                 GameState.CheckIfTeamWon();
+                localReset = true;
+                reseting(5f);
             }
         }
+
  
     }
 
+
+    public void reseting(float time){
+        localReset = true;
+        StartCoroutine(routine_reseting(time));
+        
+    }
+
+    IEnumerator routine_reseting(float time){
+        
+        yield return new WaitForSeconds(time);
+        roundStartTime = Time.time;
+
+        GameState.isResetting = false;
+        localReset = false;
+    }
 }

@@ -68,7 +68,7 @@ public class Boat : Controllable {
 
 		// Particle
 
-		if((new Vector3(transform.position.x, 1, transform.position.z) - lastParticlePoint).magnitude > particleDistance){
+		if((new Vector3(transform.position.x, 1, transform.position.z) - lastParticlePoint).magnitude > particleDistance && transform.position.y > -2f){
 			Vector3 point = transform.position;
 			point.y = 1f;
 			
