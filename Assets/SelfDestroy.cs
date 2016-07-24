@@ -32,7 +32,6 @@ public class SelfDestroy : MonoBehaviour {
             t += Time.deltaTime / 2;
             transform.position = transform.position + (Vector3.forward * t);
 
-            Debug.Log(t);
 
             if (t > 1.5f)
                 break;
