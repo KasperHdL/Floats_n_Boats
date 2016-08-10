@@ -49,18 +49,18 @@ public static class GameState {
             return;
         
         Debug.Log(winnerTeam  + " Won!");
-        Camera.main.GetComponent<Cam>().lerpToMenu(5f);
+        Camera.main.GetComponent<Cam>().lerpToMenu(3f);
  
         for(int i = 0; i < teams.Length; i++){
             float offset;
             if(teams[i].boat == winnerTeam.boat){
-                offset = 1.5f;
+                offset = 2f;
             }else
             {
-                offset = -1.5f;
+                offset = -1f;
             }
-            teams[i].boat.GetComponent<Player>().lerpToMenu(5f, offset);
-            teams[i].surf.GetComponent<Player>().lerpToMenu(5f, offset);
+            teams[i].boat.GetComponent<Player>().lerpToMenu(4f, offset);
+            teams[i].surf.GetComponent<Player>().lerpToMenu(4f, offset);
             teams[i].surf.isDead = false;
             
         }

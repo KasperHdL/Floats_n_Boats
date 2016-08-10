@@ -36,7 +36,9 @@ public class GameStateInspector : MonoBehaviour {
             return;
             
         GameState.roundTimeSeconds = Time.time - roundStartTime;
-
+        if(GameState.roundTimeSeconds < 3f)
+            return;
+            
         //Check fi players is out of bounds
         foreach(Team team in GameState.teams)
         {
