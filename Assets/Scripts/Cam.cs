@@ -102,7 +102,7 @@ public class Cam : MonoBehaviour
         Quaternion startRotation = transform.rotation;
         float startFOV = camera.fieldOfView;
 
-        float startTime = Time.time - 1f;
+        float startTime = Time.time; 
         float t = 0;
         
         while(startTime + length > Time.time){
@@ -117,8 +117,18 @@ public class Cam : MonoBehaviour
         
         transform.position = menuPos;
         transform.rotation = menuRotation;
+
+        startTime = Time.time;
+        length = 3f; 
         
-        yield return new WaitForSeconds(1f);
+        while(startTime + length > Time.time){
+            t = (Time.time - startTime) / length;
+            Debug.Log(t);
+                    this.enabled = false; 
+
+            yield return null;
+        }
+        
         this.enabled = true; 
     } 
 }

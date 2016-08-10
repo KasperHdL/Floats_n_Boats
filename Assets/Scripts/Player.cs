@@ -69,6 +69,26 @@ public class Player : MonoBehaviour {
             yield return null;
         }
 
+		startPosition = transform.position;
+		startRotation = transform.rotation;
+
+		startTime = Time.time;
+		length = 2f;
+		
+		while(startTime + length > Time.time){
+			t = (Time.time - startTime) / length;
+            transform.position = Vector3.Lerp(startPosition, menuPos, t);
+            transform.rotation = Quaternion.Lerp(startRotation, menuRotation, t);
+            
+            yield return null;
+    
+		}
+		
+
+		transform.position = menuPos;
+
+		GetComponent<Rigidbody>().velocity = Vector3.zero;
+		
 		this.enabled = true;
     }
 
