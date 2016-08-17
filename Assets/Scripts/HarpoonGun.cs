@@ -66,5 +66,6 @@ public class HarpoonGun : MonoBehaviour {
 		h.surfer = surfer;
 		h.GetComponent<Rigidbody>().AddForce(transform.forward * harpoonForce);
 		Physics.IgnoreCollision(surferCollider, h.GetComponent<Collider>());
+		CameraShake.Instance.start(.2f);
 	}
 }

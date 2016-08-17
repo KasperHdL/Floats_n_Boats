@@ -8,6 +8,8 @@ public class Cam : MonoBehaviour
     public Vector3 right = Vector3.right;
     public Camera camera;
 
+    public Vector3 position{get{return transform.position;} set{CameraShake.Instance.position = value;}}
+
     public Vector3 menuPos;
     public Quaternion menuRotation;
     private float menuFOV;
@@ -30,13 +32,14 @@ public class Cam : MonoBehaviour
     {
         
 
-        menuPos = transform.position;
+        menuPos = position;
         menuRotation = transform.rotation;
 
         camera = GetComponent<Camera>();
         menuFOV = camera.fieldOfView;
 
         this.enabled = false;
+
     }
 
     private void Update()
@@ -67,12 +70,12 @@ public class Cam : MonoBehaviour
             
             Vector3 desiredPosition = average + Vector3.one * V3One + Vector3.up * V3Up;
 
-            Vector3 delta = desiredPosition - transform.position;
+            Vector3 delta = desiredPosition - position;
             if(delta.magnitude > maxSpeed)
                 delta = delta.normalized * maxSpeed;
 
             
-            transform.position = Vector3.Lerp(transform.position, transform.position + delta, 0.5f);
+            position = Vector3.Lerp(position, position + delta, 0.5f);
 
 
             Quaternion desiredRotation = Quaternion.LookRotation(-(Vector3.one + Vector3.up));
@@ -91,6 +94,8 @@ public class Cam : MonoBehaviour
             right = transform.right;
             up = transform.forward;
         }
+
+        
     }
 
     public void lerpToMenu(float animationLength){
@@ -98,7 +103,7 @@ public class Cam : MonoBehaviour
     }
 
     IEnumerator routine_lerpToMenu(float length){
-        Vector3 startPosition = transform.position;
+        Vector3 startPosition = position;
         Quaternion startRotation = transform.rotation;
         float startFOV = camera.fieldOfView;
 
@@ -108,14 +113,14 @@ public class Cam : MonoBehaviour
         while(startTime + length > Time.time){
             
             t = (Time.time - startTime) / length;
-            transform.position = Vector3.Lerp(startPosition, menuPos, t);
+            position = Vector3.Lerp(startPosition, menuPos, t);
             transform.rotation = Quaternion.Lerp(startRotation, menuRotation, t);
             camera.fieldOfView = Mathf.Lerp(startFOV, menuFOV, t);
             
             yield return null;
         }
         
-        transform.position = menuPos;
+        position = menuPos;
         transform.rotation = menuRotation;
 
         startTime = Time.time;
@@ -131,4 +136,5 @@ public class Cam : MonoBehaviour
         
         this.enabled = true; 
     } 
+
 }

@@ -41,6 +41,9 @@ public class Boat : Controllable {
 		//	thrust =  -thrust * reverseFactor;
 		if(Mathf.Abs(moveStick.x) > .5f && moveStick.y < 0.1f)
 			moveStick.y = 0.15f;
+
+		if(body.velocity.magnitude < 1 && moveStick.y > .1f)
+			CameraShake.Instance.start(0.1f,0.2f);	
 			
 		audioSource.pitch = body.velocity.magnitude / 10f * 0.6f + 1.0f + Random.value * 0.2f;
 		//calculate force and rotate force 
