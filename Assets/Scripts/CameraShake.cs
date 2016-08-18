@@ -94,6 +94,8 @@ public class CameraShake : MonoBehaviour {
 				//stop shaking
 				stop();
 			}
+		}else{
+			transform.position = position;
 		}
 	}
 
