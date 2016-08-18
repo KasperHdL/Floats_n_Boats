@@ -5,6 +5,8 @@ public class SelectionState : MonoBehaviour
 {
     public Cam camera;
 
+    public TitleLetters title;
+
     public GameObject[] slots = new GameObject[4];
     public GamePad[] pads = new GamePad[4];
     public Button[] buttons = new Button[4];
@@ -71,6 +73,7 @@ public class SelectionState : MonoBehaviour
         }
 
         float t = 0f;
+        title.GameStarted();
 
         while(t < 1f)
         {
