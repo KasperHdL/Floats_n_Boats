@@ -19,6 +19,9 @@ public class HarpoonGun : MonoBehaviour {
 	[SerializeField] private float harpoonForce = 1000f;
 	private Vector3 direction = new Vector3(0,0,1);
 
+	[SerializeField] private float shakeAmount = 0.25f;
+	[SerializeField] private float shakeDuration = 0.2f;
+
 	void Start () {
 		ps = aim.GetComponent<ParticleSystem>();
 		indicatorColor = skillshotIndicator.color;
@@ -66,6 +69,6 @@ public class HarpoonGun : MonoBehaviour {
 		h.surfer = surfer;
 		h.GetComponent<Rigidbody>().AddForce(transform.forward * harpoonForce);
 		Physics.IgnoreCollision(surferCollider, h.GetComponent<Collider>());
-		CameraShake.Instance.start(.2f);
+		CameraShake.Instance.start(shakeDuration, shakeAmount);
 	}
 }
