@@ -43,7 +43,7 @@ public class TitleLetters : MonoBehaviour {
             letterHaveAnimatedIn[i] = false;
             letterInitialPos[i]     = letters[i].position;
             letterStartPos[i]       = letters[i].position + startOffset;
-            letterEndPos[i]         = letters[i].position + Random.insideUnitSphere * floatingRandomDuration;
+            letterEndPos[i]         = letters[i].position + Random.insideUnitSphere * floatingAmount * 0.5f;
             letterStartTime[i]      = Time.time;
             letterDuration[i]       = animateInDuration + Random.value * floatingRandomDuration;
         }
