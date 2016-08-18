@@ -21,6 +21,11 @@ public class GameStateInspector : MonoBehaviour {
     private float roundStartTime;
 
     public float deathYLevel = -5f;
+
+    [Header("Shaking on Reset")]
+    public float shakeDuration = 0.25f;
+    public float shakeAmount = 0.5f;
+    
     // Use this for initialization
     void Start ()
     {
@@ -44,6 +49,8 @@ public class GameStateInspector : MonoBehaviour {
         {
             if(team.surf.transform.position.y < deathYLevel){
                 team.surf.isDead = true;
+                
+                CameraShake.Instance.start(shakeDuration, shakeAmount);
                 
                 GameState.CheckIfTeamWon();
                 localReset = true;
